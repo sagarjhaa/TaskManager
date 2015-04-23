@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
 		$password = mysql_real_escape_string($password);
 		
 		// SQL query to fetch information of registerd users and finds user match.
-		$sql = "SELECT empname,role FROM empdata WHERE useremail='$email' AND pass='$pswrd'";
+		$sql = "SELECT empname,role,empid,projectid FROM empdata WHERE useremail='$email' AND pass='$pswrd'";
 		$query = mysqli_query($connection,$sql);
 
 		$rows = mysqli_num_rows($query);
@@ -36,6 +36,8 @@ if (isset($_POST['submit'])) {
 				$result = mysqli_fetch_array($query);
 				$_SESSION['login_user']=$result['empname']; // Initializing Session
 				$_SESSION['user_role']=$result['role'];
+				$_SESSION['user_id']=$result['empid'];
+				$_SESSION['project_id']=$result['projectid'];
 			} 
 			else 
 			{

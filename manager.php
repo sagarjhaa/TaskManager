@@ -1,7 +1,9 @@
 <?php
     session_start();
-    $username1 = $_SESSION['login_user'];
-    $userrole = $_SESSION['user_role'];
+    $username1  = $_SESSION['login_user'];
+    $userrole   = $_SESSION['user_role'];
+    $userid     = $_SESSION['user_id'];
+    $projectid  = $_SESSION['project_id'];
     include('config.php');
     
 ?>
@@ -14,14 +16,10 @@
         
         <link href="css/bootstrap-min.css" rel="stylesheet">
         <link href="css/newstyle.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
-
-        <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
-        <!-- <link rel='stylesheet' type='text/css' href='css/stylesheet.css'/> -->
-        
+        <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">        
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-        <!-- // <script type='text/javascript' src='js/script.js'></script> -->
+
 	</head>
     
 	<body>
@@ -47,7 +45,7 @@
                             <?php
                             $link = mysqli_connect($servername, $username, $password, $dbname);
 
-                            $sql = "SELECT empid FROM tb_empid;";
+                            $sql = "SELECT empid FROM empdata where projectid = '$projectid' and empid <> '$userid'";
 
                             $result = mysqli_query($link,$sql);
 
@@ -107,7 +105,8 @@
             <div>
                 <?php
                             $link = mysqli_connect($servername, $username, $password, $dbname);
-                            $sql = "SELECT id,empid,datevalue,task FROM tb_task order by empid";
+                            $sql = "SELECT DISTINCT tb_task.id,tb_task.empid,tb_task.datevalue,tb_task.task FROM tb_task,empdata where empdata.projectid = '$projectid' and empdata.empid = tb_task.empid";
+                            // $sql = "SELECT id,empid,datevalue,task FROM tb_task order by empid";
                             $result = mysqli_query($link,$sql);
 
                             if ($result != 0) {
@@ -118,21 +117,21 @@
 
                                 $row = mysqli_fetch_array($result);
                                 $empid  = $row['empid'];
-                                // $data   = $row['datevalue'];
+                                $data   = $row['datevalue'];
                                 $task   = $row['task'];
                                 
                                 $temp = $empid;
 
                                 echo '<h3>'.$empid.'</h3>';
                                 echo '<div>';
-                                echo '<p>'.$task.'</p>';
-                                // echo '<p>'.$task.'</p>'
-
+                                echo '<p>'.''.$data.': '.$task.'</p>';
+                                // echo '<p>'.$task.'</p>';
+                                
                                 for ($i=0;$i<$num_results-1;$i++) {
 
                                     $row = mysqli_fetch_array($result);
                                     $empid  = $row['empid'];
-                                    // $data   = $row['datevalue'];
+                                    $data   = $row['datevalue'];
                                     $task   = $row['task'];
                                    
                                     if($temp <> $empid){
@@ -141,10 +140,11 @@
                                         echo '</div>';
                                         echo '<h3>'.$empid.' </h3>';
                                         echo '<div>';
-                                        echo '<p>'.$task.'</p>';
+                                        echo '<p>'.''.$data.': '.$task.'</p>';
                                     }
                                     else{
-                                        echo '<p>'.$task.'</p>';
+                                        // echo '<p>'.$task.'</p>';
+                                        echo '<p>'.''.$data.': '.$task.'</p>';
                                     }
                                 }
                                 echo '</div>';
