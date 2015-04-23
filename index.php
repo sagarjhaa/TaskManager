@@ -42,7 +42,6 @@ if(isset($_SESSION['login_user'])){
               <nav>
                 <ul class="nav nav-pills pull-right">
                   <li role="presentation" class="active"><a href="#">Log In</a></li>
-                  <!-- <li role="presentation"><a href="#">About</a></li> -->
                   <li role="presentation"><a href="#">Contact</a></li>
                 </ul>
               </nav>
@@ -66,8 +65,6 @@ if(isset($_SESSION['login_user'])){
         <span style="color:Red;font-weight:bold"><?php echo $error; ?></span>
         </div>
       </form>
-    </div> <!-- /container -->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- // <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    </div> <!-- /container -->>
   </body>
 </html>

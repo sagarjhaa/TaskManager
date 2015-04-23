@@ -12,15 +12,11 @@
         <meta name="author" content="sagarjha" >
 
         <title>Company Name - Log In</title>
-        <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap-min.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <!-- <link href="css/custom.css" rel="stylesheet"> -->
         <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
     </head>
 
     <body>
-        <!-- <div id="fullscreen_bg" class="fullscreen_bg"/> -->
         <div class="container">
 
             <div class="header clearfix">
@@ -38,7 +34,6 @@
                 
                 <div class="row">
                     <div class="col-md-3">
-                        <!-- <input type="text"      name="empid"     class="form-control" placeholder="Employee Id"      required=""     autofocus=""> -->
                         <?php
                             $link = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -48,7 +43,7 @@
 
 
                             if ($result != 0) {
-                                // echo '<label>Project id:';
+                                
                                 echo '<select class="col-md-12" name="empid">';
                                 echo '<option value="">Employee Id</option>';
 
@@ -77,7 +72,7 @@
 
 
                             if ($result != 0) {
-                                // echo '<label>Project id:';
+                                
                                 echo '<select class="col-md-12" name="projectid">';
                                 echo '<option value="">Project Id</option>';
 
@@ -110,16 +105,7 @@
                 <div class="col-md-4"><button type="submit"    name="submit"    class="btn btn-lg btn-primary btn-block"  >Register</button></div>
                 </div>
                 
-                <!-- <input  type="text"      name="projectid" class="form-control" placeholder="Project Id"      required=""> -->
-                <!-- <input  type="text"      name="empname"   class="form-control" placeholder="Employee Name"   required=""> -->
-                <!-- <input  type="text"      name="email"     class="form-control" placeholder="Email Address"   required=""> -->
-                <!-- <input  type="password"  name="password"  class="form-control" placeholder="Password"        required=""> -->
-                <!-- <input type="radio" name="role" value="employee" checked> <h5 style="display:inline-block">Employee</h5> -->
-                <!-- &nbsp;&nbsp;&nbsp; -->
-                <!-- <input type="radio" name="role" value="manager"> <h5 style="display:inline-block">Manager </h5> -->
-                <!-- <input  type="text"      name="role"      class="form-control" placeholder="Designation"     required=""> -->
-                <!-- <button type="submit"    name="submit"    class="btn btn-lg btn-primary btn-block"  >Register</button> -->
-                <span style="color:Red;font-weight:bold"><?php echo $error; ?></span>
+             <span style="color:Red;font-weight:bold"><?php echo $error; ?></span>
             </form>
         </div>
     </body>

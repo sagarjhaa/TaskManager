@@ -24,11 +24,10 @@
 		}
 
 		// Insert User
-		$sql = "INSERT INTO tb_task (empid,datevalue,task) VALUES ('$empid','$date','$task')";
+		$sql = "INSERT INTO tb_task (empid,datevalue,task,progress) VALUES ('$empid','$date','$task',0)";
 
 		if (mysqli_query($conn,$sql)){
 		    $_SESSION['message'] = "New record created successfully for project id '$dataprojectid'"; 
-		    // echo $_SESSION['message'];
 		}
 		else{
 		    $_SESSION['message'] = "Error: " .$sql . "<br>" .mysqli_error($conn);

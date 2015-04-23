@@ -5,7 +5,6 @@
     $userid     = $_SESSION['user_id'];
     $projectid  = $_SESSION['project_id'];
     include('config.php');
-    
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +44,7 @@
                             <?php
                             $link = mysqli_connect($servername, $username, $password, $dbname);
 
-                            $sql = "SELECT empid FROM empdata where projectid = '$projectid' and empid <> '$userid'";
+                            $sql = "SELECT empname,empid FROM empdata where projectid = '$projectid' and empid <> '$userid'";
 
                             $result = mysqli_query($link,$sql);
 
@@ -58,8 +57,10 @@
                                 $num_results = mysqli_num_rows($result);
                                 for ($i=0;$i<$num_results;$i++) {
                                     $row = mysqli_fetch_array($result);
+                                    $empname = $row['empname'];
                                     $name = $row['empid'];
-                                    echo '<option value="' .$name. '">' .$name. '</option>';
+                                    echo '<option value="'.$name.'">'.$empname.'</option>'; 
+                                    // '.$name. '
                                 }
 
                                 echo '</select>';
@@ -104,53 +105,71 @@
             
             <div>
                 <?php
-                            $link = mysqli_connect($servername, $username, $password, $dbname);
-                            $sql = "SELECT DISTINCT tb_task.id,tb_task.empid,tb_task.datevalue,tb_task.task FROM tb_task,empdata where empdata.projectid = '$projectid' and empdata.empid = tb_task.empid";
-                            // $sql = "SELECT id,empid,datevalue,task FROM tb_task order by empid";
-                            $result = mysqli_query($link,$sql);
+                    $link = mysqli_connect($servername, $username, $password, $dbname);
+                    $sql = "SELECT tb_task.id,tb_task.empid,tb_task.datevalue,tb_task.task,tb_task.progress,empdata.empname FROM tb_task,empdata where empdata.projectid = '$projectid' and empdata.empid = tb_task.empid order by tb_task.empid,tb_task.datevalue desc";
+                    // $sql = "SELECT id,empid,datevalue,task FROM tb_task order by empid";
+                    $result = mysqli_query($link,$sql);
 
-                            if ($result != 0) {
-                                echo '<dl class="accordion">';
-                                $num_results = mysqli_num_rows($result);
-                                $menu = 'menu';
-                                echo '<div id='.$menu.'>';
+                    if ($result != 0) {
+                        echo '<dl class="accordion">';
+                        $num_results = mysqli_num_rows($result);
+                        $menu = 'menu';
+                        echo '<div id='.$menu.'>';
 
-                                $row = mysqli_fetch_array($result);
-                                $empid  = $row['empid'];
-                                $data   = $row['datevalue'];
-                                $task   = $row['task'];
-                                
+                        $row = mysqli_fetch_array($result);
+                        // $empid  = $row['empid'];
+                        $empid  = $row['empname'];
+                        $data   = $row['datevalue'];
+                        $task   = $row['task'];
+                        $tp   = $row['progress'];
+                        
+                        $temp = $empid;
+
+                        echo '<h3>'.$empid.'</h3>';
+                        echo '<div>';
+                        echo '<p>'.''.$data.': '.$task.'</p>';
+                        echo '<div class="progress">';
+                        echo '<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:'.$tp.'%;min-width:2em;">';
+                        echo $tp.'%';
+                        echo '</div>';
+                        echo '</div>';
+
+                        for ($i=0;$i<$num_results-1;$i++) {
+
+                            $row = mysqli_fetch_array($result);
+                            // $empid  = $row['empid'];
+                            $empid  = $row['empname'];
+                            $data   = $row['datevalue'];
+                            $task   = $row['task'];
+                            $tp   = $row['progress'];
+                           
+                            if($temp <> $empid){
                                 $temp = $empid;
-
-                                echo '<h3>'.$empid.'</h3>';
+                                echo '</div>';
+                                echo '<h3>'.$empid.' </h3>';
                                 echo '<div>';
                                 echo '<p>'.''.$data.': '.$task.'</p>';
-                                // echo '<p>'.$task.'</p>';
-                                
-                                for ($i=0;$i<$num_results-1;$i++) {
 
-                                    $row = mysqli_fetch_array($result);
-                                    $empid  = $row['empid'];
-                                    $data   = $row['datevalue'];
-                                    $task   = $row['task'];
-                                   
-                                    if($temp <> $empid){
-
-                                        $temp = $empid;
-                                        echo '</div>';
-                                        echo '<h3>'.$empid.' </h3>';
-                                        echo '<div>';
-                                        echo '<p>'.''.$data.': '.$task.'</p>';
-                                    }
-                                    else{
-                                        // echo '<p>'.$task.'</p>';
-                                        echo '<p>'.''.$data.': '.$task.'</p>';
-                                    }
-                                }
+                                echo '<div class="progress">';
+                                echo '<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:'.$tp.'%;min-width:2em;">';
+                                echo $tp.'%';
+                                echo '</div>';
                                 echo '</div>';
                             }
-                            mysqli_close($link);
-                        ?>
+                            else{
+                                echo '<p>'.''.$data.': '.$task.'</p>';
+
+                                echo '<div class="progress">';
+                                echo '<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:'.$tp.'%;min-width:2em;">';
+                                echo $tp.'%';
+                                echo '</div>';
+                                echo '</div>';
+                            }
+                        }
+                        echo '</div>';
+                    }
+                    mysqli_close($link);
+                ?>
             </div>
 
         </div>

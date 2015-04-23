@@ -28,8 +28,8 @@ if (isset($_POST['submit'])) {
 		    $error = "New record created successfully";
 		}
 		else{
-		    // $error = "Error: " .$sql . "<br>" .mysqli_error($conn);
-		    $error = "Check employeeId or email";
+		    $error = "Error: " .$sql . "<br>" .mysqli_error($conn);
+		    // $error = "Check employeeId or email";
 		}
 
 		mysqli_close($conn);
