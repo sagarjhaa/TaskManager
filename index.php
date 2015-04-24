@@ -9,7 +9,7 @@ if(isset($_SESSION['login_user'])){
       header("location: manager.php");    
   }
   elseif($_SESSION['user_role'] == "employee"){
-      header("location: profile.php");
+      header("location: profile_test.php");
   }
   else{
       header("location: admin.php");
