@@ -18,9 +18,10 @@
 	<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css'/>
 </head>
 
-<body>
+<body style="background-color:#1C2A52; color:#FFFFFF">
     <div class="container">
 	
 		<div class="header clearfix">
@@ -88,7 +89,7 @@
                 mysqli_close($link);
             ?>
         </div>
-        <link rel='stylesheet' type='text/css' href='http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css'/>
+        
         <script type='text/javascript' src='script.js'></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/newscript.js"></script>

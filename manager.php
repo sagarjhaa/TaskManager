@@ -21,7 +21,7 @@
 
 	</head>
     
-	<body>
+	<body style="background-color:#1C2A52; color:#FFFFFF">
         <div class="container">
 
             <div class="header clearfix">
@@ -30,15 +30,15 @@
                     <li role="presentation" class="active"><a href="logout.php">Log Out</a></li>
                   </ul>
                 </nav>
-                <h3 class="text-muted">Welcome: <?php echo $username1?></h3>
+                <h3>Welcome: <?php echo $username1?></h3>
             </div>
 
 
             <form method="post" action="manager_action.php">
                 <table>
                     <tr class="row">
-                        <td class="col-md-4">
-                            Employee ID: 
+                        <td class="col-md-4" align="right">
+                            Employee Name: 
                         </td>
                         <td class="col-md-4">
                             <?php
@@ -51,7 +51,7 @@
 
                             if ($result != 0) {
                                 // echo '<label>Project id:';
-                                echo '<select class="col-md-12" name="empid">';
+                                echo '<select class="col-md-4" name="empid">';
                                 echo '<option value="">Employee Id</option>';
 
                                 $num_results = mysqli_num_rows($result);
@@ -72,19 +72,18 @@
                         ?>                                                    
                         </td>
                     </tr>
-
                     <tr class="row">
-                        <td class="col-md-4">
+                        <td class="col-md-4" align="right">
                             Task Date: 
                         </td>
                         <td class="col-md-4">
                         
-                            <input type="date" name="data" value="Enter data in mm/dd/yy">
+                            <input style="color:#000;" type="date" name="data" value="Enter data in mm/dd/yy">
                         </td>
                     </tr>
 
                     <tr class="row">
-                        <td class="col-md-4">
+                        <td class="col-md-4" align="right">
                             Actual Task:
                         </td>
                         <td class="col-md-8">
@@ -97,7 +96,7 @@
                         <td class="col-md-4">
                         </td>
                         <td class="col-md-8">
-                            <input type="submit" name="submit">
+                            <input type="submit" name="submit" style="background-color:#ffa500; border-color:#ffa500">
                         </td>
                     </tr>
                 </table>

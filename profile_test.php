@@ -21,7 +21,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 </head>
 
-<body>
+<body style="background-color:#078032; color:#000">
     <div class="container">
 	
 		<div class="header clearfix">
@@ -30,18 +30,16 @@
 		            <li role="presentation" class="active"><a href="logout.php">Log Out</a></li>
 		          </ul>
 		        </nav>
-		        <h3 class="text-muted">Welcome: <?php echo $username1?></h3>
+		        <h3 style="color:#FFF">Welcome: <?php echo $username1?></h3>
 		</div>
 
 		<div>
-            <div class="maindiv">
-            <div class="divA">
-            <div class="title">
-            <h2>Tasks</h2>
-            </div>
+            <!-- <div class="maindiv"> -->
+            <!-- <div class="divA"> -->
             <div class="divB">
+            
             <div class="divD">
-            <p>Click On Menu</p>
+            <p>Click On Task</p>
             <?php
             $connection = mysqli_connect($servername, $username, $password, $dbname);
             if (isset($_GET['submit'])) {
@@ -64,48 +62,54 @@
             echo "<br />";
             }
             ?>
-            </div><?php
-            if (isset($_GET['update'])) {
-            $update = $_GET['update'];
-            // $query1 = mysql_query("select * from employee where employee_id=$update", $connection);
-
-            $sql = "SELECT tb_task.id,tb_task.empid,tb_task.datevalue,tb_task.task,tb_task.progress FROM tb_task where tb_task.empid ='$userid' and tb_task.id='$update'";
-            $query1 = mysqli_query($connection,$sql);
-
-            while ($row1 = mysqli_fetch_array($query1)) {
-            echo "<form class='form' method='get'>";
-            echo "<h2>Update Form</h2>";
-            echo "<hr/>";
-            // echo"<input class='input' type='hidden' name='did' value='{$row1['employee_id']}' />";
-            // echo "<br />";
-            echo"<input class='input' type='hidden' name='empid' value='{$row1['empid']}' />";
-            echo "<br />";
-            echo"<input class='input' type='hidden' name='datevalue' value='{$row1['datevalue']}' />";
-            echo "<br />";
-
-            echo "<label>" . "Task ID:" . "</label>" . "<br />";
-            echo"<input class='input' type='text' name='did' value='{$row1['id']}' />";
-            echo "<br />";
-            echo "<label>" . "Task:" . "</label>" . "<br />";
-            echo"<input class='input' type='text' name='dtask' value='{$row1['task']}' />";
-            echo "<br />";
-            echo "<label>" . "Progress:" . "</label>" . "<br />";
-            echo"<input class='input' type='text' name='dprogress' value='{$row1['progress']}' />";        
-            echo "<br />";
-            echo "<input class='submit' type='submit' name='submit' value='update' />";
-            echo "</form>";
-            }
-            }
-            if (isset($_GET['submit'])) {
-            echo '<div class="form" id="form3"><br><br><br><br><br><br>
-            <Span>Data Updated Successfuly......!!</span></div>';
-            }
-            ?>
-            <div class="clear"></div>
             </div>
-            <div class="clear"></div>
-            </div>
-            </div><?php
+            <?php
+                if (isset($_GET['submit'])) {
+                echo '<div class="form" id="form3"><br>
+                <Span>Data Updated Successfuly......!!</span></div>';
+                }
+
+                // <br><br><br><br><br>
+                if (isset($_GET['update'])) 
+                {
+                    $update = $_GET['update'];
+                    $sql = "SELECT tb_task.id,tb_task.empid,tb_task.datevalue,tb_task.task,tb_task.progress FROM tb_task where tb_task.empid ='$userid' and tb_task.id='$update'";
+                    $query1 = mysqli_query($connection,$sql);
+
+                    while ($row1 = mysqli_fetch_array($query1)) 
+                    {
+                        echo "<form class='form' method='get'>";
+                        // echo"<input class='input' type='hidden' name='did' value='{$row1['employee_id']}' />";
+                        // echo "<br />";
+                        echo "<label color:#000>" . "Task ID:" . "</label>" . "<br />";
+                        echo"<input class='input' type='text' name='did' value='{$row1['id']}' />";
+                        echo "<br />";
+                        echo "<label>" . "Task:" . "</label>" . "<br />";
+                        echo"<input class='input' type='text' name='dtask' value='{$row1['task']}' />";
+                        echo "<br />";
+                        echo "<label>" . "Progress:" . "</label>" . "<br />";
+                        echo"<input class='input' type='text' name='dprogress' value='{$row1['progress']}' />";        
+                        echo "<br />";
+                        echo "<input  type='submit' name='submit' value='update' />";
+                        echo "<br />";
+                        echo"<input class='input' type='hidden' name='empid' value='{$row1['empid']}' />";
+                        echo "<br />";
+                        echo"<input class='input' type='hidden' name='datevalue' value='{$row1['datevalue']}' />";
+                        echo "</form>";
+                    }
+                }
+
+                // if (isset($_GET['submit'])) {
+                // echo '<div class="form" id="form3"><br><br><br><br><br><br>
+                // <Span>Data Updated Successfuly......!!</span></div>';
+                // }
+                ?>
+                <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <!-- </div> -->
+                <!-- </div> -->
+            <?php
             mysqli_close($connection);
             ?>    
 

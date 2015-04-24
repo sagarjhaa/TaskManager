@@ -16,20 +16,20 @@
         <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
     </head>
 
-    <body>
+    <body style="background-color:#2442a5; color:#FFFFFF">
         <div class="container">
 
             <div class="header clearfix">
               <nav>
                 <ul class="nav nav-pills pull-right">
-                  <li role="presentation" class="active"><a href="index.php">Log In</a></li>
-                  <li role="presentation"><a href="#">Contact</a></li>
+                  <li class="active"><a href="index.php">Log In</a></li>
+                  <li class="active"><a href="#">Contact</a></li>
                 </ul>
               </nav>
-              <h3 class="text-muted">TaskManager</h3>
+              <h3>TaskManager</h3>
             </div>
 
-    	   <form class="form-signin" action="" method="post">
+    	   <form class="form-signin" action="" method="post" style="margin:0 10em; width:100%">
                 <h2 class="form-signin-heading">Register</h2>
                 
                 <div class="row">
@@ -44,7 +44,7 @@
 
                             if ($result != 0) {
                                 
-                                echo '<select class="col-md-12" name="empid">';
+                                echo '<select class="col-md-12" name="empid" style="height:50px">';
                                 echo '<option value="">Employee Id</option>';
 
                                 $num_results = mysqli_num_rows($result);

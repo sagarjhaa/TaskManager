@@ -2,18 +2,10 @@
 include('login.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
-
-  echo $_SESSION['user_role'];
-
-  if($_SESSION['user_role'] == "manager"){
-      header("location: manager.php");    
-  }
-  elseif($_SESSION['user_role'] == "employee"){
-      header("location: profile_test.php");
-  }
-  else{
-      header("location: admin.php");
-  }
+  // echo $_SESSION['user_role'];
+  if($_SESSION['user_role'] == "manager"){header("location: manager.php");}
+  elseif($_SESSION['user_role'] == "employee"){header("location: profile_test.php");}
+  else{header("location: admin.php");}
 }
 ?>
 
@@ -41,11 +33,11 @@ if(isset($_SESSION['login_user'])){
       <div class="header clearfix">
               <nav>
                 <ul class="nav nav-pills pull-right">
-                  <li role="presentation" class="active"><a href="#">Log In</a></li>
-                  <li role="presentation"><a href="#">Contact</a></li>
+                  <li class="active"><a href="#">Log In</a></li>
+                  <li class="active"><a href="#">Contact</a></li> <!-- role="presentation" -->
                 </ul>
               </nav>
-              <h3 class="text-muted">TaskManager</h3>
+              <h3>TaskManager</h3>
       </div>
 
       <form class="form-signin" action="" method="post">
@@ -65,6 +57,6 @@ if(isset($_SESSION['login_user'])){
         <span style="color:Red;font-weight:bold"><?php echo $error; ?></span>
         </div>
       </form>
-    </div> <!-- /container -->>
+    </div> <!-- /container -->
   </body>
 </html>
