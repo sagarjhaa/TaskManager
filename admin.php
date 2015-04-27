@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Your Home Page</title>
+	<title>Hello Admin</title>
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link href="css/signin.css" rel="stylesheet">
 	<link href="css/bootstrap-min.css" rel="stylesheet">

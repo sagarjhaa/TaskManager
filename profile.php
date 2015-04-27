@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Your Home Page</title>
+	<title>Employee's Task Deck</title>
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link href="css/signin.css" rel="stylesheet">
 	<link href="css/bootstrap-min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
     <link rel='stylesheet' type='text/css' href='http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css'/>
 </head>
 
-<body style="background-color:#1C2A52; color:#FFFFFF">
+<body style="background-color:#1C2A52; >
     <div class="container">
 	
 		<div class="header clearfix">

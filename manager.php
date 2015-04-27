@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<title>Result</title>
+    	<title>Manager's Task Deck</title>
         <!-- <link rel='stylesheet' type='text/css' href='http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css'/> -->
         
         <link href="css/bootstrap-min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 
 	</head>
     
-	<body style="background-color:#1C2A52; color:#FFFFFF">
+	<body style="background-color:#1C2A52;">
         <div class="container">
 
             <div class="header clearfix">
@@ -30,14 +30,14 @@
                     <li role="presentation" class="active"><a href="logout.php">Log Out</a></li>
                   </ul>
                 </nav>
-                <h3>Welcome: <?php echo $username1?></h3>
+                <h3 style="color:#FFF;">Welcome: <?php echo $username1?></h3>
             </div>
 
 
             <form method="post" action="manager_action.php">
                 <table>
                     <tr class="row">
-                        <td class="col-md-4" align="right">
+                        <td class="col-md-4" align="right" style="color:#FFF;">
                             Employee Name: 
                         </td>
                         <td class="col-md-4">
@@ -73,7 +73,7 @@
                         </td>
                     </tr>
                     <tr class="row">
-                        <td class="col-md-4" align="right">
+                        <td class="col-md-4" align="right" style="color:#FFF;">
                             Task Date: 
                         </td>
                         <td class="col-md-4">
@@ -83,7 +83,7 @@
                     </tr>
 
                     <tr class="row">
-                        <td class="col-md-4" align="right">
+                        <td class="col-md-4" align="right" style="color:#FFF;"> 
                             Actual Task:
                         </td>
                         <td class="col-md-8">
@@ -96,7 +96,7 @@
                         <td class="col-md-4">
                         </td>
                         <td class="col-md-8">
-                            <input type="submit" name="submit" style="background-color:#ffa500; border-color:#ffa500">
+                            <input type="submit" name="submit" style="background-color:#ffa500;color:#FFF; border-color:#ffa500">
                         </td>
                     </tr>
                 </table>

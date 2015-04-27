@@ -19,7 +19,7 @@ if(isset($_SESSION['login_user'])){
     <meta name="description" content="">
     <meta name="author" content="sagarjha">
     <link rel="icon" href="../../favicon.ico">
-    <title>TaskForce</title>
+    <title>TaskForce -Login Page</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap-min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -34,7 +34,8 @@ if(isset($_SESSION['login_user'])){
               <nav>
                 <ul class="nav nav-pills pull-right">
                   <li class="active"><a href="#">Log In</a></li>
-                  <li class="active"><a href="#">Contact</a></li> <!-- role="presentation" -->
+                  <!-- <li class="active"><a href="#">Contact</a></li> -->
+                  <!-- role="presentation" --> 
                 </ul>
               </nav>
               <h3>TaskManager</h3>

@@ -11,26 +11,26 @@
         <meta name="description" content="">
         <meta name="author" content="sagarjha" >
 
-        <title>Company Name - Log In</title>
+        <title>Registration Page</title>
         <link href="css/bootstrap-min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
     </head>
 
-    <body style="background-color:#2442a5; color:#FFFFFF">
+    <body style="background-color:#2442a5; ">
         <div class="container">
 
             <div class="header clearfix">
               <nav>
                 <ul class="nav nav-pills pull-right">
                   <li class="active"><a href="index.php">Log In</a></li>
-                  <li class="active"><a href="#">Contact</a></li>
+                  <!-- <li class="active"><a href="#">Contact</a></li> -->
                 </ul>
               </nav>
-              <h3>TaskManager</h3>
+              <h3 style="color:#FFF;">TaskManager</h3>
             </div>
 
     	   <form class="form-signin" action="" method="post" style="margin:0 10em; width:100%">
-                <h2 class="form-signin-heading">Register</h2>
+                <h2 class="form-signin-heading" style="color:#FFF;">Register</h2>
                 
                 <div class="row">
                     <div class="col-md-3">
@@ -44,7 +44,7 @@
 
                             if ($result != 0) {
                                 
-                                echo '<select class="col-md-12" name="empid" style="height:50px">';
+                                echo '<select class="col-md-12" name="empid" >';
                                 echo '<option value="">Employee Id</option>';
 
                                 $num_results = mysqli_num_rows($result);
@@ -98,9 +98,9 @@
 
                 <div class="row"><div class="col-md-6"><input  type="text"      name="email"     class="form-control" placeholder="Email Address"   required=""></div></div>
                 <div class="row"><div class="col-md-6"><input  type="password"  name="password"  class="form-control" placeholder="Password"        required=""></div></div>
-                <div class="row"><div class="col-md-6"><input type="radio" name="role" value="employee" checked> <h5 style="display:inline-block">Employee</h5>
+                <div class="row"><div class="col-md-6"><input type="radio" name="role" value="employee" checked> <h5 style="display:inline-block;color:#FFF;">Employee</h5>
                 &nbsp;&nbsp;&nbsp;
-                <input type="radio" name="role" value="manager"> <h5 style="display:inline-block">Manager </h5></div></div>
+                <input type="radio" name="role" value="manager"> <h5 style="display:inline-block; color:#FFF;">Manager </h5></div></div>
                 <div class="row">
                 <div class="col-md-4"><button type="submit"    name="submit"    class="btn btn-lg btn-primary btn-block"  >Register</button></div>
                 </div>

@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Your Home Page</title>
+	<title>Employee's Task Deck</title>
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link href="css/signin.css" rel="stylesheet">
 	<link href="css/bootstrap-min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 </head>
 
-<body style="background-color:#078032; color:#000">
+<body style="background-color:#078032;">
     <div class="container">
 	
 		<div class="header clearfix">
