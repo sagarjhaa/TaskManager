@@ -19,6 +19,10 @@
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+        <!-- polyfiller file to detect and load polyfills -->
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+
 	</head>
     
 	<body style="background-color:#1C2A52;">
@@ -59,7 +63,7 @@
                                     $row = mysqli_fetch_array($result);
                                     $empname = $row['empname'];
                                     $name = $row['empid'];
-                                    echo '<option value="'.$name.'">'.$empname.'</option>'; 
+                                    echo '<option style="color: #000;" value="'.$name.'">'.$empname.'</option>'; 
                                     // '.$name. '
                                 }
 
@@ -78,7 +82,7 @@
                         </td>
                         <td class="col-md-4">
                         
-                            <input style="color:#000;" type="date" name="data" value="Enter data in mm/dd/yy">
+                            <input style="color:#000;" type="date" name="data" value="Enter data in yyyy-mm-dd">
                         </td>
                     </tr>
 

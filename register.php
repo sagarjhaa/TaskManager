@@ -44,8 +44,13 @@
 
                             if ($result != 0) {
                                 
+<<<<<<< Updated upstream
                                 echo '<select class="col-md-12" name="empid" >';
                                 echo '<option value="">Employee Id</option>';
+=======
+                                echo '<select class="col-md-12" name="empid" style="height:50px">';
+                                echo '<option style="color: #000;" value="">Employee Id</option>';
+>>>>>>> Stashed changes
 
                                 $num_results = mysqli_num_rows($result);
                                 for ($i=0;$i<$num_results;$i++) {
@@ -74,7 +79,7 @@
                             if ($result != 0) {
                                 
                                 echo '<select class="col-md-12" name="projectid">';
-                                echo '<option value="">Project Id</option>';
+                                echo '<option style="color: #000;" value="">Project Id</option>';
 
                                 $num_results = mysqli_num_rows($result);
                                 for ($i=0;$i<$num_results;$i++) {

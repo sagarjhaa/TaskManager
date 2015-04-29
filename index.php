@@ -19,7 +19,8 @@ if(isset($_SESSION['login_user'])){
     <meta name="description" content="">
     <meta name="author" content="sagarjha">
     <link rel="icon" href="../../favicon.ico">
-    <title>TaskForce -Login Page</title>
+
+    <title>TaskManager -Login Page</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap-min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -47,11 +48,11 @@ if(isset($_SESSION['login_user'])){
         <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus> 
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required> 
-        <div class="checkbox">
+        <!-- <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
-        </div>
+        </div> -->
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Sign in</button>
         <a href="register.php" class="btn btn-md btn-warning btn-block">Register</a>
         <div>
